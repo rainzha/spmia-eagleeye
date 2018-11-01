@@ -1,0 +1,6 @@
+version: '2'
+services:
+  simpleservice:
+    image: rainzha/licensing-service:latest
+    ports:
+    - "8080:8080"
