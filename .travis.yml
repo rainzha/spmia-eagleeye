@@ -1,0 +1,23 @@
+language: java
+cache:
+  directories:
+  - "$HOME/.m2"
+jdk:
+- oraclejdk8
+sudo: required
+services:
+- docker
+notifications:
+  email:
+  - rainzha@163.com
+  on_success: always
+  on_failure: always
+branches:
+  only:
+  - master
+env:
+  matrix:
+  - LICENSING_SERVICE_DOCKER_IMAGE=rainzha/licensing-service:latest
+script:
+- gradle build docker
+- bash travis_scripts/docker_push
